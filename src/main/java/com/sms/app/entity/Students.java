@@ -14,10 +14,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+
 @Entity
 @Table(name = "students")
 public class Students {
@@ -32,7 +29,6 @@ public class Students {
     @Column(name = "last_name", nullable = false)
     private String lastName;
     
-    @Pattern(regexp = "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$", message = "Date should be in the format dd/mm/yyyy")
     @Column(name = "birth_date", nullable = false)
     private Date birthDate;
 
@@ -43,9 +39,88 @@ public class Students {
     private String email;
 
     @Column(name = "enrollment_date", nullable = false)
-    @Pattern(regexp = "^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d$", message = "Date should be in the format dd/mm/yyyy")
     private Date enrollmentDate;
+
+
+
+
+
+    
+    public Students() {
+    }
+
+    
+
+    public Students(Long id, String firstName, String lastName, Date birthDate, String phoneNumber, String email,
+            Date enrollmentDate) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.birthDate = birthDate;
+        this.phoneNumber = phoneNumber;
+        this.email = email;
+        this.enrollmentDate = enrollmentDate;
+    }
+
+
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public Date getBirthDate() {
+        return birthDate;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Date getEnrollmentDate() {
+        return enrollmentDate;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setEnrollmentDate(Date enrollmentDate) {
+        this.enrollmentDate = enrollmentDate;
+    }
    
+    
     
     
 }
